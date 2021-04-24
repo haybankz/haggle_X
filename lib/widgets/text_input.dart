@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:haggle_x_test/utils/theme.dart';
 
 
@@ -47,15 +46,15 @@ class _TextInputState extends State<TextInputWidget> {
       inputFormatters: widget.inputFormatters,
 
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.zero,
-        isDense: true,
+        // contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 0),
+        isDense: false,
         labelText: widget.hintText,
         labelStyle: TextStyle(color: widget.hintColor,),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: widget.borderColor, width: 1),
         ),
         focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: purple, width: 1),
+          borderSide: BorderSide(color: accent, width: 1),
         ),
 
         // hintText: widget.hintText,
