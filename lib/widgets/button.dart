@@ -30,7 +30,7 @@ class ButtonWidget extends StatelessWidget {
         child: !loading
             ? Text(
                 text,
-                style: TextStyle(color: brown, fontSize: 15),
+                style: TextStyle(color: brown, fontSize: 15, fontWeight: FontWeight.bold),
               )
             : Container(
                 height: 20,
@@ -84,7 +84,7 @@ class SecondaryButtonWidget extends StatelessWidget {
             child: !loading
                 ? Text(
               text,
-              style: TextStyle(color: offWhite, fontSize: 15),
+              style: TextStyle(color: offWhite, fontSize: 15, fontWeight: FontWeight.bold),
             )
                 : Container(
                 height: 20,

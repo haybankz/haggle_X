@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+
+    <g transform="translate(-5 -5.332)">
+        <rect style="fill:#c4c4c4;" width="20" height="20" rx="4" transform="translate(5 5.332)"/>
+        <path style="fill:#fff;" d="M20,15H17V12a1,1,0,0,0-2,0v3H12a1,1,0,0,0,0,2h3v3a1,1,0,0,0,2,0V17h3a1,1,0,0,0,0-2Z" transform="translate(-0.834 -0.834)"/>
+        <path style="fill:#fff;" d="M20,15H17V12a1,1,0,0,0-1-1V21a1,1,0,0,0,1-1V17h3a1,1,0,0,0,0-2Z" transform="translate(-1.08 -0.834)"/>
+    </g>
+</svg>

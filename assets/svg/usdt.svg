@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+
+    <rect style="fill:#f2f2f2;" width="40" height="40" rx="20"/>
+    <g transform="translate(6.084 6.083)">
+        <g transform="translate(0 0)">
+            <g transform="translate(0 0)">
+                <circle style="fill:#00a478" cx="13.916" cy="13.916" r="13.916"/>
+                <path style="fill:#fff" d="M22.6,20.873V17.317H17.9V14.2H31.026v3.161h-4.7v3.512Z" transform="translate(-10.262 -8.274)"/>
+                <path style="fill:#fff" d="M21.773,25.751c4.917,0,7.463,1.361,7.77,1.8-.307.439-2.81,1.1-7.77,1.1-4.917,0-7.463-.658-7.77-1.1C14.31,27.068,16.856,25.751,21.773,25.751Zm0-.351c-4.7,0-8.473.966-8.473,2.151S17.075,29.7,21.773,29.7s8.473-.966,8.473-2.151S26.47,25.4,21.773,25.4Z" transform="translate(-7.681 -14.557)"/>
+                <g transform="translate(12.336 11.15)">
+                    <path style="fill:#fff" d="M4.388,2.646V.188C3.773.144,3.114.1,2.456.1,1.841.1,1.271.1.7.144V2.6c.527,0,1.141.044,1.756.044a14.177,14.177,0,0,0,1.932,0Z" transform="translate(-0.656 -0.1)"/>
+                    <path style="fill:#fff" d="M2.356,9.088c-.615,0-1.185,0-1.756-.044v6.541H4.288V9C3.673,9.044,3.014,9.088,2.356,9.088Z" transform="translate(-0.6 -5.093)"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

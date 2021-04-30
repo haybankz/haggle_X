@@ -15,7 +15,7 @@ Color textColor = const Color(0xff828282);
 Color black = Color(0xff000000);
 
 
-final TextStyle textStyle = TextStyle(fontSize: 15, fontWeight: FontWeight.normal,
+final TextStyle textStyle = TextStyle(fontSize: 15, fontWeight: FontWeight.w500,
     color: offWhite);
 
 ThemeData appTheme = ThemeData(
@@ -23,7 +23,7 @@ ThemeData appTheme = ThemeData(
   primaryColor: lightPrimary,
   accentColor:  Colors.yellow,
   cursorColor: yellow,
-  fontFamily: 'raleway',
+  fontFamily: 'BasisGrotesquePro',
   scaffoldBackgroundColor: lightPrimary,
   visualDensity: VisualDensity.adaptivePlatformDensity,
   appBarTheme: AppBarTheme(

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:haggle_x_test/utils/dimension.dart';
+import 'package:haggle_x_test/utils/routes.dart';
 import 'package:haggle_x_test/utils/theme.dart';
 import 'package:haggle_x_test/widgets/background_widget.dart';
 import 'package:haggle_x_test/widgets/button.dart';
 
 class VerificationSuccessScreen extends StatelessWidget {
 
+  int i = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +39,9 @@ class VerificationSuccessScreen extends StatelessWidget {
                 ],
               ),
               YMargin(30),
-              ButtonWidget(text: 'START EXPLORING', onPressed: (){}),
+              ButtonWidget(text: 'START EXPLORING', onPressed: (){
+                Get.offAndToNamed(Routes.dashboard);
+              }),
             ],
           ),
         ),

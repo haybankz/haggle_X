@@ -46,8 +46,8 @@ class _TextInputState extends State<TextInputWidget> {
       inputFormatters: widget.inputFormatters,
 
       decoration: InputDecoration(
-        // contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 0),
-        isDense: false,
+        contentPadding: EdgeInsets.symmetric(vertical: 4),
+        isDense: true,
         labelText: widget.hintText,
         labelStyle: TextStyle(color: widget.hintColor,),
         enabledBorder: UnderlineInputBorder(

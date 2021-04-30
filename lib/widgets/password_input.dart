@@ -44,57 +44,45 @@ class _TextInputState extends State<PasswordInputWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      // fit: StackFit.passthrough,
-      children: [
-        TextFormField(
-          style: TextStyle(color: widget.textColor, fontSize: 16),
-          cursorColor: widget.textColor,
-          keyboardType: widget.keyboardType,
-          controller: widget.controller,
-          validator: widget.validator,
-          inputFormatters: widget.inputFormatters,
-          obscureText: _obscureText,
-          decoration: InputDecoration(
-            // contentPadding: EdgeInsets.zero,
-            isDense: false,
-            labelText: widget.hintText,
-            labelStyle: TextStyle(color: widget.hintColor,),
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: widget.borderColor, width: 2),
-            ),
-            focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: accent, width: 2),
-            ),
-
-            // hintText: widget.hintText,
-            // hintStyle: TextStyle(color: textColor),
-          ),
-
-
-        ),
-        Positioned(
-          right: -20,
-          top: -8,
-          child: FlatButton(
-            onPressed: _toggleObscure,
+    return TextFormField(
+      style: TextStyle(color: widget.textColor, fontSize: 16),
+      cursorColor: widget.textColor,
+      keyboardType: widget.keyboardType,
+      controller: widget.controller,
+      validator: widget.validator,
+      inputFormatters: widget.inputFormatters,
+      obscureText: _obscureText,
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(vertical: 0),
+        suffix: GestureDetector(
+          // padding: EdgeInsets.zero,
+          // materialTapTargetSize: MaterialTapTargetSize.padded,
+          onTap: _toggleObscure,
+          child: Padding(padding: EdgeInsets.symmetric(vertical: 4, horizontal: 20),
             child: _obscureText
-                ? ImageIcon(
-              AssetImage('assets/icons/hide_pass.png'),
-              color: offWhite,
-              size: 18,
-            )
-                : ImageIcon(
-                AssetImage('assets/icons/show_pass.png'),
-                color: offWhite,
-                size: 16
-            ),
-            splashColor: Colors.transparent,
+              ? Image.asset('assets/icons/hide_pass.png', color: widget.borderColor,
+              width: 18, height: 18,)
+              : Image.asset('assets/icons/show_pass.png', color: widget.borderColor,
+            width: 18, height: 18,),),
+          // splashColor: Colors.transparent,
 //              color: Colors.white,
-            highlightColor: Colors.transparent,
-          ),
-        )
-      ],
+//             highlightColor: Colors.transparent,
+        ),
+        isDense: true,
+        labelText: widget.hintText,
+        labelStyle: TextStyle(color: widget.hintColor,),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: widget.borderColor, width: 1),
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: accent, width: 1),
+        ),
+
+        // hintText: widget.hintText,
+        // hintStyle: TextStyle(color: textColor),
+      ),
+
+
     );
   }
 
