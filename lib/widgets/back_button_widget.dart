@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:haggle_x_test/utils/theme.dart';
 
 class BackButtonWidget extends StatelessWidget {
-
   final Function onTap;
 
-  BackButtonWidget({@required this.onTap}) : assert( onTap != null);
+  BackButtonWidget({@required this.onTap}) : assert(onTap != null);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,11 @@ class BackButtonWidget extends StatelessWidget {
           color: Color(0xff6A4BBC).withOpacity(0.3),
           borderRadius: BorderRadius.circular(14),
         ),
-        child: Icon(Icons.arrow_back_ios_rounded, size: 20, color: offWhite,),
+        child: Icon(
+          Icons.arrow_back_ios_rounded,
+          size: 20,
+          color: offWhite,
+        ),
       ),
     );
   }

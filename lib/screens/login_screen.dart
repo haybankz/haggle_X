@@ -56,7 +56,8 @@ class LoginScreen extends StatelessWidget {
                         hintText: 'Password (Min. 8 characters)',
                         validator: (value) {
                           if (value.isEmpty) return 'Enter password';
-                          if(value.length < 8) return "Password can not be less than 8 characters";
+                          if (value.length < 8)
+                            return "Password can not be less than 8 characters";
                           return null;
                         },
                       ),
@@ -71,23 +72,26 @@ class LoginScreen extends StatelessWidget {
                         ],
                       ),
                       YMargin(30),
-                      ButtonWidget(text: 'LOG IN', onPressed: () {
-                        FocusScope.of(context).unfocus();
-                        provider.login();
-                      }),
+                      ButtonWidget(
+                          text: 'LOG IN',
+                          onPressed: () {
+                            FocusScope.of(context).unfocus();
+                            provider.login();
+                          }),
                       YMargin(30),
                       Consumer<SignUpProvider>(
-                        builder:(_, provider, child) => RichText(
+                        builder: (_, provider, child) => RichText(
                           text: TextSpan(
                               text: 'New User? ',
-                              style: textStyle.copyWith(fontWeight: FontWeight.w400, fontSize: 14),
+                              style: textStyle.copyWith(
+                                  fontWeight: FontWeight.w400, fontSize: 14),
                               children: <TextSpan>[
                                 TextSpan(
                                     text: 'Create a new account',
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {
                                         FocusScope.of(context).unfocus();
-                                      provider.initRegister();
+                                        provider.initRegister();
                                         Get.toNamed(Routes.signUp);
                                       })
                               ]),

@@ -23,45 +23,30 @@ class AppPages {
     GetPage(
       name: Routes.splash,
       page: () => SplashScreen(),
-
     ),
     GetPage(
       name: Routes.login,
       page: () => LoginScreen(),
-        transition: Transition.fadeIn,
-        transitionDuration: Duration(milliseconds: 900)
-
     ),
     GetPage(
       name: Routes.signUp,
       page: () => SignUpScreen(),
-      transition: Transition.fade,
-      transitionDuration: Duration(milliseconds: 100)
     ),
     GetPage(
-        name: Routes.activeCountry,
-        page: () => CountryCodeScreen(),
-        transition: Transition.fade,
-        transitionDuration: Duration(milliseconds: 100)
+      name: Routes.activeCountry,
+      page: () => CountryCodeScreen(),
     ),
     GetPage(
-        name: Routes.verification,
-        page: () => VerificationScreen(),
-        transition: Transition.size,
-        transitionDuration: Duration(milliseconds: 300)
+      name: Routes.verification,
+      page: () => VerificationScreen(),
     ),
     GetPage(
-        name: Routes.verificationSuccess,
-        page: () => VerificationSuccessScreen(),
-        transition: Transition.size,
-        transitionDuration: Duration(milliseconds: 300)
+      name: Routes.verificationSuccess,
+      page: () => VerificationSuccessScreen(),
     ),
     GetPage(
-        name: Routes.dashboard,
-        page: () => DashboardScreen(),
-        transition: Transition.size,
-        transitionDuration: Duration(milliseconds: 300)
+      name: Routes.dashboard,
+      page: () => DashboardScreen(),
     ),
-
   ];
 }

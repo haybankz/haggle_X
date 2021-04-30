@@ -35,8 +35,8 @@ List<Destination> allDestination = [
 
   Destination(
     title: '',
-    icon: SvgPicture.asset('assets/svg/otc.svg', height: 16, width: 16, fit: BoxFit.fill, color: Colors.transparent,),
-    activeIcon: SvgPicture.asset('assets/svg/otc.svg', height: 20, width: 20, fit: BoxFit.fill, color: Colors.transparent,),
+    icon: SvgPicture.asset('assets/svg/otc.svg', height: 20, width: 20, fit: BoxFit.fill,),
+    activeIcon: SvgPicture.asset('assets/svg/otc.svg', height: 20, width: 20, fit: BoxFit.fill,),
   ),
 
   Destination(

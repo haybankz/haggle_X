@@ -1,7 +1,6 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 class BaseClient {
-
   final String url = 'https://hagglex-backend-staging.herokuapp.com/graphql';
 
   GraphQLClient getUnauthorizedClient() {
@@ -18,20 +17,15 @@ class BaseClient {
     );
   }
 
-
-  GraphQLClient getAuthorizedClient(String token){
+  GraphQLClient getAuthorizedClient(String token) {
     final HttpLink httpLink = HttpLink(
       url,
     );
 
-
     final AuthLink authLink = AuthLink(
-      getToken: () async{
-
+      getToken: () async {
         return 'Bearer $token';
-
-        },
-
+      },
     );
 
     final Link link = authLink.concat(httpLink);

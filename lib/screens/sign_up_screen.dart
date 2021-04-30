@@ -78,7 +78,8 @@ class SignUpScreen extends StatelessWidget {
                             textColor: black,
                             validator: (value) {
                               if (value.isEmpty) return 'Enter password';
-                              if(value.length < 8) return "Password can not be less than 8 characters";
+                              if (value.length < 8)
+                                return "Password can not be less than 8 characters";
                               return null;
                             },
                           ),

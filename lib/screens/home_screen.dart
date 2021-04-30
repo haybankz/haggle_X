@@ -38,7 +38,7 @@ class HomeScreen extends StatelessWidget {
                       Text(
                         "HaggleX",
                         style: textStyle.copyWith(
-                            fontSize: 18, fontWeight: FontWeight.bold),
+                            fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       _NotificationIconWidget()
                     ],
@@ -50,15 +50,15 @@ class HomeScreen extends StatelessWidget {
                       Text(
                         'Total portfolio balance',
                         style: textStyle.copyWith(
-                            fontSize: 12, fontWeight: FontWeight.w300),
+                            fontSize: 13, fontWeight: FontWeight.w300),
                       ),
                       YMargin(6),
                       Row(
                         children: [
                           Text(
-                            r"$****",
+                            "\$****",
                             style: textStyle.copyWith(
-                                fontSize: 20, fontWeight: FontWeight.bold),
+                                fontSize: 22, fontWeight: FontWeight.bold),
                           )
                         ],
                       ),
@@ -95,40 +95,44 @@ class HomeScreen extends StatelessWidget {
                     itemCount: Coin.coinList.length,
                     itemBuilder: (context, i) {
                       Coin coin = Coin.coinList[i];
-                      return Row(children: [
-                        SvgPicture.asset("assets/svg/${coin.icon}",
-                            height: 40, width: 40),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('${coin.name ?? ''} (${coin.ticker ?? ''})',
-                                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
-                                YMargin(4),
-                                Row(children: [
+                      return Row(
+                        children: [
+                          SvgPicture.asset("assets/svg/${coin.icon}",
+                              height: 40, width: 40),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
                                   Text(
-                                    'NGN ${coin.price}',
-                                    style: TextStyle(
-                                        fontSize: 10, color: Colors.grey[700]),
-                                  ),
-                                  XMargin(6),
-                                  Text('+${coin.changePercent}%',
+                                      '${coin.name ?? ''} (${coin.ticker ?? ''})',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500)),
+                                  YMargin(4),
+                                  Row(children: [
+                                    Text(
+                                      'NGN ${coin.price}',
                                       style: TextStyle(
                                           fontSize: 10,
-                                          color: Color(0xff52CB35))),
-                                ]),
-                              ],
+                                          color: Colors.grey[700]),
+                                    ),
+                                    XMargin(6),
+                                    Text('+${coin.changePercent}%',
+                                        style: TextStyle(
+                                            fontSize: 10,
+                                            color: Color(0xff52CB35))),
+                                  ]),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        SvgPicture.asset('assets/svg/${coin.graphIcon}',
-                            height: 20, width: 40)
-
-                      ],);
-
+                          SvgPicture.asset('assets/svg/${coin.graphIcon}',
+                              height: 20, width: 40)
+                        ],
+                      );
                     },
                   ),
                   YMargin(6),
@@ -138,7 +142,6 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.only(
                   top: 12.0, right: 12, left: 12, bottom: 2),
@@ -175,21 +178,20 @@ class HomeScreen extends StatelessWidget {
             ),
             YMargin(15),
             Container(color: Colors.grey[100], height: 10),
-
-
             Column(
               //  mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Text("Trending crypto news",
-                    style: textStyle.copyWith(
-                        color: black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18),)
-                ),
+                    padding: const EdgeInsets.all(18.0),
+                    child: Text(
+                      "Trending crypto news",
+                      style: textStyle.copyWith(
+                          color: black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    )),
                 ListView.builder(
                   physics: BouncingScrollPhysics(),
                   shrinkWrap: true,
@@ -207,10 +209,10 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             YMargin(10),
                             Text(
-                                'Blockchain Bites: BTC on Ethereum, DeFi’s latest stablecoin, the currency cold wars',
-                                style:  textStyle.copyWith(
-                                color: black,
-                                fontSize: 14),),
+                              'Blockchain Bites: BTC on Ethereum, DeFi’s latest stablecoin, the currency cold wars',
+                              style: textStyle.copyWith(
+                                  color: black, fontSize: 14),
+                            ),
                             YMargin(14),
                             Row(children: [
                               Text(
@@ -233,9 +235,7 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
             YMargin(30),
-
             Container(height: 1, color: Colors.grey[200]),
-
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Row(
@@ -254,7 +254,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Container(height: 1, color: Colors.grey[200]),
-
             YMargin(40)
           ],
         ),
@@ -288,7 +287,6 @@ class _DoMoreWidget extends StatelessWidget {
                   SvgPicture.asset('assets/svg/$icon', height: 40, width: 40),
             ),
             XMargin(6),
-
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(

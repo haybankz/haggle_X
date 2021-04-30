@@ -8,7 +8,6 @@ import 'package:haggle_x_test/widgets/background_widget.dart';
 import 'package:haggle_x_test/widgets/button.dart';
 
 class VerificationSuccessScreen extends StatelessWidget {
-
   int i = 0;
   @override
   Widget build(BuildContext context) {
@@ -21,27 +20,34 @@ class VerificationSuccessScreen extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  SvgPicture.asset('assets/svg/verify_done.svg', height: 40.0,
-                    width: 40.0, fit: BoxFit.cover,),
+                  SvgPicture.asset(
+                    'assets/svg/verify_done.svg',
+                    height: 40.0,
+                    width: 40.0,
+                    fit: BoxFit.cover,
+                  ),
                   YMargin(20),
-
-                  Text('Setup Complete',
+                  Text(
+                    'Setup Complete',
                     textAlign: TextAlign.center,
-                    style: textStyle.copyWith(fontSize: 18,
-                     fontWeight: FontWeight.bold),),
+                    style: textStyle.copyWith(
+                        fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
                   YMargin(20),
-                  Text('Thank you for setting up your HaggleX account',
+                  Text(
+                    'Thank you for setting up your HaggleX account',
                     textAlign: TextAlign.center,
-                    style: textStyle.copyWith(fontSize: 12,
-                        height: 1.5),),
+                    style: textStyle.copyWith(fontSize: 12, height: 1.5),
+                  ),
                   YMargin(30),
-
                 ],
               ),
               YMargin(30),
-              ButtonWidget(text: 'START EXPLORING', onPressed: (){
-                Get.offAndToNamed(Routes.dashboard);
-              }),
+              ButtonWidget(
+                  text: 'START EXPLORING',
+                  onPressed: () {
+                    Get.offAndToNamed(Routes.dashboard);
+                  }),
             ],
           ),
         ),

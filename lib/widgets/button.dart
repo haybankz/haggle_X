@@ -30,7 +30,8 @@ class ButtonWidget extends StatelessWidget {
         child: !loading
             ? Text(
                 text,
-                style: TextStyle(color: brown, fontSize: 15, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    color: brown, fontSize: 15, fontWeight: FontWeight.bold),
               )
             : Container(
                 height: 20,
@@ -79,22 +80,24 @@ class SecondaryButtonWidget extends StatelessWidget {
           ),
         ),
         child: Material(
-          color: Colors.transparent,
-          child: Center(
-            child: !loading
-                ? Text(
-              text,
-              style: TextStyle(color: offWhite, fontSize: 15, fontWeight: FontWeight.bold),
-            )
-                : Container(
-                height: 20,
-                width: 20,
-                child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(accent),
-                  strokeWidth: 1,
-                )),
-          )
-        ),
+            color: Colors.transparent,
+            child: Center(
+              child: !loading
+                  ? Text(
+                      text,
+                      style: TextStyle(
+                          color: offWhite,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
+                    )
+                  : Container(
+                      height: 20,
+                      width: 20,
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(accent),
+                        strokeWidth: 1,
+                      )),
+            )),
       ),
     );
   }

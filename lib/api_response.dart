@@ -1,5 +1,4 @@
 class ApiResponse<T> {
-
 //  ApiResponse();
 
   Status status;
@@ -11,7 +10,7 @@ class ApiResponse<T> {
   ApiResponse.completed(this.data) : status = Status.COMPLETED;
   ApiResponse.error(this.message) : status = Status.ERROR;
 
-  ApiResponse({this.data,  this.message, this.status});
+  ApiResponse({this.data, this.message, this.status});
 
   @override
   String toString() {

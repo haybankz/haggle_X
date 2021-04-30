@@ -10,7 +10,7 @@ import 'package:haggle_x_test/data/repository/base_client.dart';
 import 'package:haggle_x_test/data/repository/local_repository.dart';
 import 'package:haggle_x_test/locator.dart';
 
-class GraphQLRepository {
+class RemoteRepository {
   final String url = 'https://hagglex-backend-staging.herokuapp.com/graphql';
 
   BaseClient _baseClient = BaseClient();
@@ -19,7 +19,6 @@ class GraphQLRepository {
   Future<ApiResponse<ActiveCountriesResponseDto>> getActiveCountries() async {
     final WatchQueryOptions _options = WatchQueryOptions(
       document: gql(Queries.getActiveCountries),
-      // pollInterval: Duration(seconds: 4),
       fetchResults: true,
     );
     return _baseClient
@@ -27,7 +26,8 @@ class GraphQLRepository {
         .query(_options)
         .then((result) async {
       if (result.hasException) {
-        return ApiResponse<ActiveCountriesResponseDto>.error(parseError(result.exception.graphqlErrors));
+        return ApiResponse<ActiveCountriesResponseDto>.error(
+            parseError(result.exception.graphqlErrors));
       } else {
         return ApiResponse<ActiveCountriesResponseDto>.completed(
             ActiveCountriesResponseDto.fromJson(result.data));
@@ -40,14 +40,15 @@ class GraphQLRepository {
     final MutationOptions _options = MutationOptions(
         document: gql(Queries.login),
         variables: <String, String>{"input": email, "password": password});
+
     return _baseClient
         .getUnauthorizedClient()
         .mutate(_options)
         .then((result) async {
       if (result.hasException) {
-        return ApiResponse<LoginResponseDto>.error(parseError(result.exception.graphqlErrors));
+        return ApiResponse<LoginResponseDto>.error(
+            parseError(result.exception.graphqlErrors));
       } else {
-
         LoginResponseDto loginResponseDto =
             LoginResponseDto.fromJson(result.data);
 
@@ -57,8 +58,6 @@ class GraphQLRepository {
       }
     }).catchError((err) => ApiResponse<LoginResponseDto>.error(err));
   }
-
-
 
   Future<ApiResponse<RegisterResponseDto>> register(
       RegisterRequestDto registerDto) async {
@@ -71,7 +70,8 @@ class GraphQLRepository {
         .mutate(_options)
         .then((result) async {
       if (result.hasException) {
-        return ApiResponse<RegisterResponseDto>.error(parseError(result.exception.graphqlErrors));
+        return ApiResponse<RegisterResponseDto>.error(
+            parseError(result.exception.graphqlErrors));
       } else {
         RegisterResponseDto registerResponseDto =
             RegisterResponseDto.fromJson(result.data);
@@ -95,12 +95,14 @@ class GraphQLRepository {
         .mutate(_options)
         .then((result) async {
       if (result.hasException) {
-        return ApiResponse<VerifyUserResponseDto>.error(parseError(result.exception.graphqlErrors));
+        return ApiResponse<VerifyUserResponseDto>.error(
+            parseError(result.exception.graphqlErrors));
       } else {
         VerifyUserResponseDto verifyUserResponseDto =
             VerifyUserResponseDto.fromJson(result.data);
 
-        _localRepository.saveData('token', verifyUserResponseDto.verifyUser.token);
+        _localRepository.saveData(
+            'token', verifyUserResponseDto.verifyUser.token);
 
         return ApiResponse<VerifyUserResponseDto>.completed(
             verifyUserResponseDto);
@@ -117,7 +119,8 @@ class GraphQLRepository {
         .mutate(_options)
         .then((result) async {
       if (result.hasException) {
-        return ApiResponse<bool>.error(parseError(result.exception.graphqlErrors));
+        return ApiResponse<bool>.error(
+            parseError(result.exception.graphqlErrors));
       } else {
         return ApiResponse<bool>.completed(
             result.data["resendVerificationCode"]);
@@ -125,11 +128,10 @@ class GraphQLRepository {
     }).catchError((err) => ApiResponse<bool>.error(err));
   }
 
-  String parseError(List<GraphQLError> errors){
+  String parseError(List<GraphQLError> errors) {
     return errors.map((e) => e.message).toList().join("\n");
   }
 }
-
 
 class Queries {
   static String get getActiveCountries => """

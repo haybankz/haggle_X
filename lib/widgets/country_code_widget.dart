@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 class CountryCodeWidget extends StatefulWidget {
   final Function(Country) onSelect;
 
-  CountryCodeWidget({@required this.onSelect}) : assert( onSelect != null);
+  CountryCodeWidget({@required this.onSelect}) : assert(onSelect != null);
 
   @override
   _CountryCodeState createState() => _CountryCodeState();
@@ -50,7 +50,6 @@ class _CountryCodeState extends State<CountryCodeWidget> {
             widget.onSelect(result);
             setState(() {
               country = result;
-
             });
           }
         }
@@ -72,10 +71,12 @@ class _CountryCodeState extends State<CountryCodeWidget> {
       children: [
         SvgPicture.network(
           country.flag,
-          placeholderBuilder: (_) => Image.asset('assets/images/app_logo.png',
+          placeholderBuilder: (_) => Image.asset(
+            'assets/images/app_logo.png',
             height: 12,
             width: 14,
-            fit: BoxFit.fill,),
+            fit: BoxFit.fill,
+          ),
           height: 12,
           width: 14,
           fit: BoxFit.fill,

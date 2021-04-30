@@ -2,28 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:haggle_x_test/api_response.dart';
 import 'package:haggle_x_test/data/models/login_response_dto.dart';
-import 'package:haggle_x_test/data/repository/graph_ql_repo.dart';
+import 'package:haggle_x_test/data/repository/remote_repository.dart';
 import 'package:haggle_x_test/locator.dart';
 import 'package:haggle_x_test/utils/dialog_utils.dart';
 import 'package:haggle_x_test/utils/routes.dart';
 
 class LoginProvider extends ChangeNotifier {
-
-  GraphQLRepository _repository = locator<GraphQLRepository>();
+  RemoteRepository _repository = locator<RemoteRepository>();
 
   TextEditingController emailCtrl;
   TextEditingController passwordCtrl;
   GlobalKey<FormState> loginFormKey;
 
-  initLogin(){
+  initLogin() {
     emailCtrl = TextEditingController();
     passwordCtrl = TextEditingController();
     loginFormKey = GlobalKey<FormState>();
   }
 
-  void login() async{
+  void login() async {
     loginFormKey.currentState.save();
-    if(loginFormKey.currentState.validate()){
+    if (loginFormKey.currentState.validate()) {
       showLoader();
 
       ApiResponse<LoginResponseDto> response = await _repository.login(
@@ -31,14 +30,13 @@ class LoginProvider extends ChangeNotifier {
 
       closeLoader();
 
-      if(response.status == Status.ERROR){
+      if (response.status == Status.ERROR) {
         //TODO show error message
         showMessage(response.message);
         passwordCtrl.clear();
-      }else{
+      } else {
         Get.offAndToNamed(Routes.dashboard);
       }
-
     }
   }
 
@@ -49,5 +47,4 @@ class LoginProvider extends ChangeNotifier {
     passwordCtrl.dispose();
     super.dispose();
   }
-
 }

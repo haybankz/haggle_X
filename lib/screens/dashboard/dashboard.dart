@@ -1,5 +1,3 @@
-import 'dart:developer';
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -28,43 +26,7 @@ class _DashboardScreenState extends State<DashboardScreen>
 
     return WillPopScope(
       onWillPop: () async {
-          // set up the buttons
-          Widget cancelButton = FlatButton(
-            child: Text("Cancel"),
-            onPressed:  () {
-              Navigator.pop(context);
-            },
-          );
-          Widget continueButton = FlatButton(
-              child: Text("Yes", style: TextStyle(color: Colors.red),),
-              onPressed:  (){
-                Future.delayed(const Duration(milliseconds: 10), () {
-                  // SystemChannels.platform.invokeMethod('SystemNavigator.pop');
-                  Navigator.pop(context);
-                });
-              },
-          );
-
-          // // set up the AlertDialog
-          // AlertDialog alert = AlertDialog(
-          //   title: Text("HaggleX"),
-          //   content: Text("Are you sure you want to quit the app?"),
-          //   actions: [
-          //     cancelButton,
-          //     continueButton,
-          //   ],
-          // );
-          //
-          // // show the dialog
-          // showDialog(
-          //   context: context,
-          //   builder: (BuildContext context) {
-          //     return alert;
-          //   },
-          // );
-
           _showLogout();
-
         return true;
       },
       child: Scaffold(
@@ -72,6 +34,8 @@ class _DashboardScreenState extends State<DashboardScreen>
         resizeToAvoidBottomPadding: false,
         body: AnnotatedRegion<SystemUiOverlayStyle>(
           value: SystemUiOverlayStyle.dark,
+
+          //main page view
           child: IndexedStack(
             index: _currentIndex,
             children: allDestination.map<Widget>((Destination destination) {
@@ -81,15 +45,17 @@ class _DashboardScreenState extends State<DashboardScreen>
             }).toList(),
           ),
         ),
-        floatingActionButton: Align(
-          child: FloatingActionButton(
-            child: Image.asset('assets/icons/otc.png', height: 50, width: 70, fit: BoxFit.fill, ),
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          onPressed: (){},),
-          alignment: Alignment(0, 1.22),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        // floatingActionButton: Padding(
+        //   padding: const EdgeInsets.only(top: 60.0),
+        //   child: FloatingActionButton(
+        //     child: Image.asset('assets/icons/otc.png', height: 90, width: 90, fit: BoxFit.fill, ),
+        //   backgroundColor: Colors.transparent,
+        //   elevation: 0,
+        //   onPressed: (){},),
+        // ),
+        // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
+        //bottom nav bar
         bottomNavigationBar: BottomNavigationBar(
           selectedLabelStyle:
               textStyle.copyWith(color: purple, fontSize: 10),
@@ -114,10 +80,7 @@ class _DashboardScreenState extends State<DashboardScreen>
           items: allDestination.map((Destination destination) {
             return BottomNavigationBarItem(
               icon: destination.icon,
-//            backgroundColor: Color(0xffe0e0e0),
               label: destination.title,
-              // backgroundColor: orange,
-
               activeIcon: destination.activeIcon,
             );
           }).toList(),

@@ -1,46 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:haggle_x_test/utils/theme.dart';
 
-class SearchCountryWidget extends StatefulWidget{
-
+class SearchCountryWidget extends StatefulWidget {
   final TextEditingController searchController;
   final Function(String) onSubmit;
 
-
-  SearchCountryWidget({@required this.searchController, @required this.onSubmit});
+  SearchCountryWidget(
+      {@required this.searchController, @required this.onSubmit});
 
   @override
   _SearchState createState() => _SearchState();
 }
 
-class _SearchState extends State<SearchCountryWidget>{
-
+class _SearchState extends State<SearchCountryWidget> {
   bool searchEmpty = true;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    widget.searchController.addListener((){
-
-      if(widget.searchController.text.isEmpty){
+    widget.searchController.addListener(() {
+      if (widget.searchController.text.isEmpty) {
         setState(() {
           searchEmpty = true;
         });
-      }else{
+      } else {
         setState(() {
           searchEmpty = false;
         });
       }
-
-
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
-    return  Container(
-//      padding: EdgeInsets.only(left: 16, right: 16),
+    return Container(
       child: TextFormField(
         style: textStyle,
         cursorColor: offWhite,
@@ -54,20 +47,38 @@ class _SearchState extends State<SearchCountryWidget>{
           hintStyle: textStyle,
           fillColor: Color(0xffFFFFFF).withOpacity(0.2),
           filled: true,
-          suffixIcon: searchEmpty ? Icon(Icons.search, color: textColor, size: 24,) : GestureDetector(
-              onTap: (){
-                WidgetsBinding.instance.addPostFrameCallback((_) => widget.searchController.clear());
-                widget.onSubmit("");
-              },
-              child: Icon(Icons.clear, color: offWhite, size: 20,)
-          ),
+          suffixIcon: searchEmpty
+              ? Icon(
+                  Icons.search,
+                  color: textColor,
+                  size: 24,
+                )
+              : GestureDetector(
+                  onTap: () {
+                    WidgetsBinding.instance.addPostFrameCallback(
+                        (_) => widget.searchController.clear());
+                    widget.onSubmit("");
+                  },
+                  child: Icon(
+                    Icons.clear,
+                    color: offWhite,
+                    size: 20,
+                  )),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(24.0),),
-            borderSide: BorderSide(color: textColor,),
+            borderRadius: BorderRadius.all(
+              Radius.circular(24.0),
+            ),
+            borderSide: BorderSide(
+              color: textColor,
+            ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(24.0),),
-            borderSide: BorderSide(color: textColor,),
+            borderRadius: BorderRadius.all(
+              Radius.circular(24.0),
+            ),
+            borderSide: BorderSide(
+              color: textColor,
+            ),
           ),
         ),
       ),

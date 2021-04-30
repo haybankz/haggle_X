@@ -13,26 +13,23 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 class SplashScreen extends StatefulWidget {
-
   @override
   _SplashState createState() => _SplashState();
 }
 
-class _SplashState extends State<SplashScreen>{
-CountryProvider provider;
-LoginProvider _loginProvider;
+class _SplashState extends State<SplashScreen> {
+  CountryProvider provider;
+  LoginProvider _loginProvider;
   @override
   void initState() {
-
     //dispose splash screen and navigate to login screen after 2seconds
-    Timer(Duration(seconds: 2), (){
+    Timer(Duration(seconds: 2), () {
       // provider.getActiveCountries();
       _loginProvider.initLogin();
       Get.offAndToNamed(Routes.login);
     });
 
     super.initState();
-
   }
 
   @override
@@ -44,16 +41,21 @@ LoginProvider _loginProvider;
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/app_logo.png', fit: BoxFit.contain,
-            width: screenWidth(context, percent: 25),
-              height: screenWidth(context, percent: 25),),
+            Image.asset(
+              'assets/images/app_logo.png',
+              fit: BoxFit.contain,
+              width: screenWidth(context, percent: 25),
+              height: screenWidth(context, percent: 25),
+            ),
             YMargin(20),
-            Text("HaggleX", style: textStyle.copyWith(fontSize: 24, fontWeight: FontWeight.bold),)
-
+            Text(
+              "HaggleX",
+              style:
+                  textStyle.copyWith(fontSize: 24, fontWeight: FontWeight.bold),
+            )
           ],
         ),
       ),
     );
   }
-
 }
