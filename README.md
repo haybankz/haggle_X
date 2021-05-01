@@ -1,4 +1,4 @@
-# haggle_x_test
+# haggle_x_clone app
 
 A new Flutter application for HaggleX clone
 
