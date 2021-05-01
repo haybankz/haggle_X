@@ -1,6 +1,6 @@
 # haggle_x_test
 
-A new Flutter application for HaggleX flutter dev role test
+A new Flutter application for HaggleX clone
 
 ## Getting Started
 
